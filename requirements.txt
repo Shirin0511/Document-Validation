@@ -1,2 +1,4 @@
 faker
 reportlab
+pillow
+pdf2image
