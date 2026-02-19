@@ -1,10 +1,9 @@
 import re
 from datetime import datetime
 from typing import Dict
+from .common_validation import extract_dob, extract_name, validate_dob, validate_name
 
 PAN_REGEX= r"[A-Z]{5}[0-9]{4}[A-Z]"
-DOB_REGEX = r"\b\d{2}/\d{2}/\d{4}\b"
-
 
 def extract_pan(ocr_text : str):
 
@@ -16,42 +15,13 @@ def extract_pan(ocr_text : str):
     return None
 
 
-def extract_name(ocr_text : str):
-
-    for line in ocr_text.splitlines():
-        if "NAME" in line.upper():
-            parts= line.split(":")
-            if len(parts) > 1:
-                return parts[1].strip()
-    return None        
-
-def extract_dob(ocr_text : str):
-
-    match = re.search(DOB_REGEX, ocr_text)
-    return match.group() if match else None
-
 
 def validate_pan(pan: str):
     if not pan:
         return None
     return bool(re.fullmatch(PAN_REGEX, pan))
 
-def validate_name(name: str):
 
-    if not name:
-        return False
-    
-    return len(name.strip())>=3
-
-
-def validate_dob(dob : str):
-
-    try:
-        parsed_dob = datetime.strptime(dob,"%D/%M%Y")
-        return parsed_dob < datetime.now()
-    
-    except:
-        return False
 
 def validate_pan_pipeline(ocr_text: str) :
 
