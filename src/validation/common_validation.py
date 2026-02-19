@@ -35,7 +35,7 @@ def validate_name(name: str):
 def validate_dob(dob : str):
 
     try:
-        parsed_dob = datetime.strptime(dob,"%D/%M%Y")
+        parsed_dob = datetime.strptime(dob,"%d/%m/%Y")
         return parsed_dob < datetime.now()
     
     except:
