@@ -30,7 +30,7 @@ def extract_address(text: str):
         if capture:
             if line.strip()=="":
                 break
-            address.append(line.split())
+            address.append(line.strip())
 
     if address:
         return " ".join(address)    
