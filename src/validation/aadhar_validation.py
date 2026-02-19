@@ -54,10 +54,10 @@ def validate_address(address: str):
 
 def validate_aadhar_pipeline(ocr_text: str):
 
-    name = extract_name
-    dob = extract_dob
-    aadhar = extract_aadharno
-    address = extract_address
+    name = extract_name(ocr_text)
+    dob = extract_dob(ocr_text)
+    aadhar = extract_aadharno(ocr_text)
+    address = extract_address(ocr_text)
 
     valid_name = validate_name(name)
     valid_dob = validate_dob(dob)
