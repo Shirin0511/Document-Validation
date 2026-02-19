@@ -28,7 +28,7 @@ def extract_address(text: str):
             continue
 
         if capture:
-            if line.strip()==" ":
+            if line.strip()=="":
                 break
             address.append(line.split())
 
