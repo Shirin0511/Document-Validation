@@ -3,6 +3,7 @@ from .validation.aadhar_validation import validate_aadhar_pipeline
 from .document_detector import detect_doc_type
 from .confidence_engine import calculate_confidence
 from .ocr_engine import extract_text_from_img
+import os
 
 def validate_document_from_img(img_path : str):
 
@@ -88,8 +89,9 @@ if __name__ == "__main__":
     #     print(f"{k} : {v}")    
 
 
-    img_path ="data/processed/aadhaar/aadhaar_0.png"
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+    img_path = os.path.join(BASE_DIR, "data", "processed", "pan", "pan_0.png")
     result = validate_document_from_img(img_path)
 
     print("===============================")
