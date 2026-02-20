@@ -1,6 +1,6 @@
-from validation.pan_validation import validate_pan_pipeline
-from validation.aadhar_validation import validate_aadhar_pipeline
-from document_detector import detect_doc_type
+from .validation.pan_validation import validate_pan_pipeline
+from .validation.aadhar_validation import validate_aadhar_pipeline
+from .document_detector import detect_doc_type
 
 def validate_documents(ocr_text: str):
 
