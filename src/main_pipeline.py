@@ -27,7 +27,7 @@ def validate_documents(ocr_text: str):
 
 
     result = calculate_confidence(result)
-    
+
     return result
 
 
@@ -44,10 +44,9 @@ if __name__ == "__main__":
     sample_aadhaar = """
     GOVERNMENT OF INDIA
 
-    Name: RAHUL SHARMA
+    Name: RA
     DOB: 21/05/1998
 
-    1234 5678 9123
 
     Address:
     22 MG Road
