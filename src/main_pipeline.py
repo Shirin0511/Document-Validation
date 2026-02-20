@@ -2,6 +2,27 @@ from .validation.pan_validation import validate_pan_pipeline
 from .validation.aadhar_validation import validate_aadhar_pipeline
 from .document_detector import detect_doc_type
 from .confidence_engine import calculate_confidence
+from .ocr_engine import extract_text_from_img
+
+def validate_document_from_img(img_path : str):
+
+    ocr_text = extract_text_from_img(img_path)
+
+    if not ocr_text.strip():
+        return{
+            "document_type": "UNKNOWN",
+            "final_decision": "REJECT",
+            "reason": "OCR failed or empty text"
+        }
+    
+    print("OCR Text is: ", ocr_text)
+
+    print("Running Validation Pipeline")
+    result = validate_documents(ocr_text)
+
+    return result
+
+
 
 def validate_documents(ocr_text: str):
 
@@ -33,37 +54,45 @@ def validate_documents(ocr_text: str):
 
 if __name__ == "__main__":
 
-    sample_pan = """
-    INCOME TAX DEPARTMENT
+    # sample_pan = """
+    # INCOME TAX DEPARTMENT
 
-    Name: TAMMY BELTRAN
-    DOB: 18/11/1969
-    PAN: GHDOA8008B
-    """
+    # Name: TAMMY BELTRAN
+    # DOB: 18/11/1969
+    # PAN: GHDOA8008B
+    # """
 
-    sample_aadhaar = """
-    GOVERNMENT OF INDIA
+    # sample_aadhaar = """
+    # GOVERNMENT OF INDIA
 
-    Name: RA
-    DOB: 21/05/1998
-
-
-    Address:
-    22 MG Road
-    Bangalore
-    Karnataka
-    """
+    # Name: RA
+    # DOB: 21/05/1998
 
 
-    pan_result= validate_documents(sample_pan)
+    # Address:
+    # 22 MG Road
+    # Bangalore
+    # Karnataka
+    # """
 
-    for k,v in pan_result.items():
+
+    # pan_result= validate_documents(sample_pan)
+
+    # for k,v in pan_result.items():
+    #     print(f"{k} : {v}")
+
+
+    # aadhar_result = validate_documents(sample_aadhaar)
+
+    # for k,v in aadhar_result.items():
+    #     print(f"{k} : {v}")    
+
+
+    img_path ="data/processed/aadhaar/aadhaar_0.png"
+
+    result = validate_document_from_img(img_path)
+
+    print("===============================")
+
+    for k,v in result.items():
         print(f"{k} : {v}")
-
-
-    aadhar_result= validate_documents(sample_aadhaar)
-
-    for k,v in aadhar_result.items():
-        print(f"{k} : {v}")    
-
-
