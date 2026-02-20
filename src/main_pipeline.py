@@ -1,6 +1,7 @@
 from .validation.pan_validation import validate_pan_pipeline
 from .validation.aadhar_validation import validate_aadhar_pipeline
 from .document_detector import detect_doc_type
+from .confidence_engine import calculate_confidence
 
 def validate_documents(ocr_text: str):
 
@@ -18,12 +19,15 @@ def validate_documents(ocr_text: str):
         result = validate_aadhar_pipeline(ocr_text)
 
     else:
-        return{
+        result= {
             "document_type" : "UNKNOWN",
             "decision" : "REJECT",
             "reason" : "Unrecognizable Document Provided"
         }   
 
+
+    result = calculate_confidence(result)
+    
     return result
 
 
