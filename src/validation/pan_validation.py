@@ -67,12 +67,7 @@ def validate_pan_pipeline(ocr_text: str) :
         "reason" : reason
     }           
 
-
-
     
-
-    
-
 
 if __name__=="__main__":
 
