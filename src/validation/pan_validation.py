@@ -56,7 +56,8 @@ def validate_pan_pipeline(ocr_text: str) :
         reason = "PAN Validation is successful"  
 
     return {
-        "pan" : pan,
+        "document_type" : "PAN",
+        "pan_number" : pan,
         "pan_valid" : pan_valid,
         "name" : name,
         "name_valid" : name_valid,

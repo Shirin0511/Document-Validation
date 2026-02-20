@@ -19,7 +19,7 @@ def validate_documents(ocr_text: str):
 
     else:
         return{
-            "doctype" : "UNKNOWN",
+            "document_type" : "UNKNOWN",
             "decision" : "REJECT",
             "reason" : "Unrecognizable Document Provided"
         }   
