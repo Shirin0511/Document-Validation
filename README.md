@@ -47,8 +47,6 @@ Final Decision
 ## 🗂 Project Structure
 
 ```
-## 🗂 Project Structure
-
 Document_Validation_ML/
 │
 ├── data/
