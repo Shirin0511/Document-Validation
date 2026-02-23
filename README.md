@@ -82,79 +82,50 @@ Document_Validation_ML/
 
 ## Confidence Scoring Logic
 
-```
-
 Each document type uses weighted scoring.
 
-PAN Weights
+### 🪪 PAN Weights
+- **pan_valid** → 0.50  
+- **name_valid** → 0.30  
+- **dob_valid** → 0.20  
 
-pan_valid → 0.50
+### 🆔 Aadhaar Weights
+- **aadhaar_valid** → 0.40  
+- **name_valid** → 0.25  
+- **dob_valid** → 0.20  
+- **address_valid** → 0.15  
 
-name_valid → 0.30
+### 🏁 Final Decision Logic
+- **≥ 90%** → AUTO_PASS  
+- **60% – 89%** → MANUAL_REVIEW  
+- **< 60%** → REJECT  
 
-dob_valid → 0.20
-
-Aadhaar Weights
-
-aadhaar_valid → 0.40
-
-name_valid → 0.25
-
-dob_valid → 0.20
-
-address_valid → 0.15
-
-Final Decision:
-
-≥ 90% → AUTO_PASS
-
-60% – 89% → MANUAL_REVIEW
-
-< 60% → REJECT
-
-```
+---
 
 ## Real-World Relevance
 
-```
+This system mimics real-world KYC validation pipelines used in:
 
-This system mimics real KYC validation pipelines used in:
+- Banking  
+- Fintech  
+- Loan underwriting  
+- Identity verification systems  
 
-Banking
+### Key production concepts implemented
+- Modular architecture  
+- Separation of extraction and validation  
+- Confidence-based routing  
+- Fail-safe OCR handling  
+- Document classification layer  
 
-Fintech
-
-Loan underwriting
-
-Identity verification systems
-
-Key production concepts implemented:
-
-Modular architecture
-
-Separation of extraction and validation
-
-Confidence-based routing
-
-Fail-safe OCR handling
-
-Document classification layer
-
-```
+---
 
 ## Future Enhancements
 
-```
+- Fraud detection heuristics  
+- Batch processing support  
+- Streamlit UI for document upload & validation  
+- FastAPI deployment for real-time API usage  
+- Logging & audit trail system  
 
-Fraud detection heuristics
-
-Batch processing
-
-Streamlit UI
-
-FastAPI deployment
-
-Logging & audit trail system
-
-```
 
