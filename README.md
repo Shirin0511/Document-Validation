@@ -110,6 +110,7 @@ This system mimics real-world KYC validation pipelines used in:
 - Identity verification systems  
 
 ### Key production concepts implemented
+
 - Modular architecture  
 - Separation of extraction and validation  
 - Confidence-based routing  
