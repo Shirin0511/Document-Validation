@@ -1,4 +1,4 @@
-# ML Document Validation & Confidence Scoring Pipeline
+# Document Validation & Confidence Scoring Pipeline
 
 An end-to-end intelligent document validation system for PAN and Aadhaar cards using OCR, rule-based validation, and weighted confidence scoring.
 
@@ -47,7 +47,7 @@ Final Decision
 ## 🗂 Project Structure
 
 ```
-Document_Validation_ML/
+Document_Validation/
 │
 ├── data/
 │   ├── synthetic/             
